@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumino Template</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background: url("image 1 background.jpeg") no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+        .navbar {
+            background: transparent;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure navbar is on top of other content */
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            left: 15px;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 18px;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1; /* Ensure intro text is on top of the background */
+        }
+        .intro .logo-box {
+            margin-bottom: 20px;
+        }
+        .intro .logo-box img {
+            width: 80px;
+            height: 80px;
+        }
+        .intro h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .intro p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .intro .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+        .intro .btn:hover {
+            background: white;
+            color: black;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .btn {
+            font-size: 0.9rem;
+            padding: 8px 18px;
+            border-radius: 25px;
+            align-self: center;
+        }
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        @media (max-width: 768px) {
+            .order-md-2 {
+                order: 1 !important;
+            }
+            .order-md-1 {
+                order: 2 !important;
+            }
+        }
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .contact form {
+            width: 100%;
+            max-width: 400px;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-row input {
+            width: 48%;
+        }
+        .contact form input,
+        .contact form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact form button {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: auto;
+            align-self: flex-end;
+        }
+        .contact-info {
+            width: 100%;
+            max-width: 400px;
+        }
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .contact-info p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact form,
+            .contact-info {
+                width: 100%;
+                margin: 0;
+            }
+            .contact form {
+                margin-bottom: 20px;
+            }
+            .form-row {
+                flex-direction: column;
+            }
+            .form-row input {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            width: 100%;
+            margin: auto;
+        }
+        .grid-container img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 0;
+            transition: none;
+        }
+        .container h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Lumino</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Intro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Columns</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="intro text-center">
+            <div class="logo-box">
+                <img src="w.avif" alt="Star Logo">
+            </div>
+            <h1>Lumino</h1>
+            <p>Free Bootstrap 4.0 Website Template</p>
+            <a href="#" class="btn btn-primary">Begin</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <img src="v1.jpeg" class="img-fluid" alt="Image 1">
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h3>Nulla molestie euismod</h3>
+                <p>Lumino theme is a Bootstrap 4.0 mobile compatible layout for your website. Check "columns" page for one, two, three columns and tables.</p>
+                <a href="#" class="btn btn-outline-primary">Preview</a>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-6 order-md-2">
+                <img src="v2.jpeg" class="img-fluid" alt="Image 2">
+            </div>
+            <div class="col-md-6 order-md-1 d-flex flex-column justify-content-center">
+                <h3>Nulla molestie euismod</h3>
+                <p>You may download, modify and use this template as you wish. Lumino HTML5 template is a fully responsive mobile ready for any kind of website.</p>
+                <a href="#" class="btn btn-outline-primary">Detail</a>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <img src="v3.jpeg" class="img-fluid" alt="Image 3">
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h3>Nulla molestie euismod</h3>
+                <p>Credit goes to Unsplash for images used in this website template. Nulla sit amet tristique lacus. Etiam blandit ex vitae mauris gravida.</p>
+                <a href="#" class="btn btn-outline-primary">Read</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Etiam at rhoncus nisl. Nunc rutrum ac ante euismod cursus.<br>
+        Suspendisse imperdiet feugiat massa nec iaculis.</p>
+        <div class="grid-container">
+            <img src="t1.jpg" alt="Image 1">
+            <img src="t2.jpg" alt="Image 2">
+            <img src="t3.jpg" alt="Image 3">
+            <img src="t4.jpg" alt="Image 4">
+            <img src="t5.jpg" alt="Image 5">
+            <img src="t6.jpg" alt="Image 6">
+            <img src="t7.jpg" alt="Image 7">
+            <img src="t8.webp" alt="Image 8">
+            <img src="t9.jpg" alt="Image 9">
+            <img src="t10.jpg" alt="Image 10">
+            <img src="t11.jpg" alt="Image 11">
+            <img src="t12.jpg" alt="Image 12">
+        </div>
+    </div>
+
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form>
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" placeholder="Message"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div class="contact-info">
+                <h3>Etiam at rhoncus nisl</h3>
+                <p>Nunc rutrum ac ante euismod cursus. Suspendisse imperdiet feugiat massa nec iaculis.</p>
+                <p>Tel: 010-020-0340</p>
+                <p>Email: info@company.com</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
